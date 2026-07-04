@@ -4,7 +4,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AppLayout } from "./components/AppLayout";
 import { HomePage } from "./components/pages/HomePage";
-//import { LobbyView } from "./pages/LobbyPage";
+import { LobbyView } from "./components/pages/LobbyPage";
 import { applySavedTheme } from "./utils/theme";
 
 
