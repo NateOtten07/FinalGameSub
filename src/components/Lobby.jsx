@@ -1,7 +1,9 @@
 import { capitalize } from "../utils/string_formatting";
 import { avatars } from "../logic/avatars";
+import {useLocation } from "react-router-dom";
 
 export const LobbyView = ({
+
   onGameStart,
   onSettingsSave,
   name,
@@ -13,8 +15,17 @@ export const LobbyView = ({
   darkMode,
   setDarkMode,
 }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const isGameStartEnabled = avatar !== undefined && name !== ``;
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    saveSettings({name, avatar, difficulty, darkMode});
+
+    const from = location.state?.from;
+    navigate(from || "/");
+  };
   const handleGameStart = () => {
     onGameStart();
   };
@@ -23,6 +34,7 @@ export const LobbyView = ({
     e.preventDefault();
     onSettingsSave();
   };
+
 
   return (
     <section aria-labelledby="settings-heading" className="card">

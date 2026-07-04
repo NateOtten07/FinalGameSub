@@ -8,7 +8,7 @@ import { LobbyView } from "./pages/LobbyPage";
 import { RPSGamePage } from "./pages/RPSGamePage";
 import { TicTacToePage } from "./pages/TicTacToePage";
 import { applySavedTheme } from "./utils/theme";
-//import { ProtectedRoute } from "./components/ProtectedRoute";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 
 // Apply theme on app start

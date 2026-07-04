@@ -1,6 +1,6 @@
-import { GameSection } from "./components/rps-game/GameSection";
-import { HighScoresSection } from "./components/rps-game/HighScoresSection";
-import { PlayerInfoCard } from "./components/rps-game/PlayerInfoCard";
+import { GameSection } from "../components/rps-game/GameSection";
+import { HighScoresSection } from "../components/rps-game/HighScoresSection";
+import { PlayerInfoCard } from "../components/rps-game/PlayerInfoCard";
 import { loadSettings } from '../logic/settings';
 
 export function RPSGamePage() {
@@ -10,11 +10,10 @@ export function RPSGamePage() {
   const playerAvatar = settings?.avatar;
   const difficulty = settings?.difficulty || 'normal';
 
- function GameView({ playerName, playerAvatar, difficulty }) {
   const handleBackToSettings = () => {
     console.log(`going back to the settings view`);
   };
-  console.log(playerAvatar);
+
   return (
     <main>
       <header>
@@ -30,5 +29,4 @@ export function RPSGamePage() {
       <HighScoresSection />
     </main>
   );
-}
 }
