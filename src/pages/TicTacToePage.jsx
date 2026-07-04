@@ -99,6 +99,7 @@ export function TicTacToePage() {
 
   return (
     <div className="game">
+      <h2>Tic-Tac-Toe</h2>
       <div className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>

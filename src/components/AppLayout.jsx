@@ -12,7 +12,7 @@ export function AppLayout() {
     return (
         <main>
             <header>
-                <h1>Welcome to the games lobby</h1>
+                <h1>Welcome to the Games Lobby</h1>
             </header>
             <Navigation />
             <Outlet />
