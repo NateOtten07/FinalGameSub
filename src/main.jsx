@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AppLayout } from "./components/AppLayout";
 import { HomePage } from "./pages/HomePage";
 import { LobbyView } from "./pages/LobbyPage";
@@ -8,13 +9,12 @@ import { RPSGamePage } from "./pages/RPSGamePage";
 import { TicTacToePage } from "./pages/TicTacToePage";
 import { applySavedTheme } from "./utils/theme";
 import { ProtectedRoute } from "./components/ProtectedRoute";
-import { createHashRouter, RouterProvider } from "react-router-dom";
 
 
 // Apply theme on app start
 applySavedTheme();
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
