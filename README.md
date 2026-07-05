@@ -1128,3 +1128,6 @@ You've successfully built a multi-game lobby with React Router! You now understa
 - Component composition and reusability
 
 This foundation will serve you well in building more complex React applications!
+
+## Self Assesment
+I think that I did relatively well on this assignment, I think that throughout I was able to learn and I do think it walking me through it helped a ton. I think it is still a concept that I may struggle with a bit just because I think it can be a bit difficult to understand fully. I think that despite that I did well. I think I deserve a 100 on this as I do think I fullfilled all requirements but may not fully understand the material completely.
