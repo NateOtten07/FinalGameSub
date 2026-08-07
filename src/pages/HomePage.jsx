@@ -23,6 +23,8 @@ export function HomePage() {
   );
 
   return (
+
+    <section>
     <section>
       <h2>Available Games</h2>
       <p>Choose a game to play</p>
@@ -46,15 +48,8 @@ export function HomePage() {
         {filteredGames.map((game) => renderGameItem(game))}
       </ul>
 
-      <footer>
-        <p>
-          Nathan Otten
-          <br />
-
-          Final Game Lobby
-        </p>
-
-      </footer>
     </section>
+
+      </section>
   );
 }

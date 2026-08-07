@@ -16,6 +16,9 @@ export function AppLayout() {
             </header>
             <Navigation />
             <Outlet />
+            <footer className="app-footer">
+                <p>Final Game Lobby — built by Nathan Otten</p>
+            </footer>
         </main>
     );
 }
