@@ -45,6 +45,16 @@ export function HomePage() {
       <ul style={{ textAlign: "left" }}>
         {filteredGames.map((game) => renderGameItem(game))}
       </ul>
+
+      <footer>
+        <p>
+          Nathan Otten
+          <br />
+
+          Final Game Lobby
+        </p>
+
+      </footer>
     </section>
   );
 }
