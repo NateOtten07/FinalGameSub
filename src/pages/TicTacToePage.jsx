@@ -1,8 +1,12 @@
 import { useState } from 'react';
+import { loadSettings } from '../logic/settings';
 
-function Square({ value, onSquareClick }) {
+function Square({ value, onSquareClick, index }) {
   return (
-    <button className="square" onClick={onSquareClick}>
+    <button
+      className="square"
+      onClick={onSquareClick}
+      aria-label={`Square ${index}${value ? `: ${value}` : ''}`}>
       {value}
     </button>
   );
@@ -34,19 +38,19 @@ function Board({ xIsNext, squares, onPlay }) {
     <>
       <div className="status">{status}</div>
       <div className="board-row">
-        <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
-        <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
-        <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
+        <Square value={squares[0]} onSquareClick={() => handleClick(0)} index={1} />
+        <Square value={squares[1]} onSquareClick={() => handleClick(1)} index={2} />
+        <Square value={squares[2]} onSquareClick={() => handleClick(2)} index={3} />
       </div>
       <div className="board-row">
-        <Square value={squares[3]} onSquareClick={() => handleClick(3)} />
-        <Square value={squares[4]} onSquareClick={() => handleClick(4)} />
-        <Square value={squares[5]} onSquareClick={() => handleClick(5)} />
+        <Square value={squares[3]} onSquareClick={() => handleClick(3)} index={4} />
+        <Square value={squares[4]} onSquareClick={() => handleClick(4)} index={5} />
+        <Square value={squares[5]} onSquareClick={() => handleClick(5)} index={6} />
       </div>
       <div className="board-row">
-        <Square value={squares[6]} onSquareClick={() => handleClick(6)} />
-        <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
-        <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
+        <Square value={squares[6]} onSquareClick={() => handleClick(6)} index={7} />
+        <Square value={squares[7]} onSquareClick={() => handleClick(7)} index={8} />
+        <Square value={squares[8]} onSquareClick={() => handleClick(8)} index={9} />
       </div>
     </>
   );
@@ -73,6 +77,8 @@ function calculateWinner(squares) {
 }
 
 export function TicTacToePage() {
+  const settings = loadSettings();
+  const playerName = settings?.name;
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
   const xIsNext = currentMove % 2 === 0;
@@ -100,6 +106,7 @@ export function TicTacToePage() {
   return (
     <div className="game">
       <h2>Tic-Tac-Toe</h2>
+      {playerName ? <div role="status">Welcome {playerName}!</div> : null}
       <div className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>

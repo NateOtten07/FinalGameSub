@@ -12,7 +12,7 @@ export const LobbyView = () => {
   // Load existing settings or use defaults
   const existingSettings = loadSettings();
   const [name, setName] = useState(existingSettings?.name || "");
-  const [avatar, setAvatar] = useState(existingSettings?.avatar);
+  const [avatar, setAvatar] = useState(existingSettings?.avatar || avatars[0].key);
   const [difficulty, setDifficulty] = useState(existingSettings?.difficulty || "normal");
   const [darkMode, setDarkMode] = useState(existingSettings?.darkMode || false);
 

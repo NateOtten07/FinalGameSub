@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { loadSettings } from "../logic/settings";
 
 const ROWS = 6;
 const COLS = 5;
@@ -39,6 +40,8 @@ function getColor(letter, index, guess, target) {
 }
 
 export default function Wordle() {
+  const settings = loadSettings();
+  const playerName = settings?.name;
   const [targetWord, setTargetWord] = useState("");
   const [grid, setGrid] = useState(makeEmptyGrid());
   const [row, setRow] = useState(0);
@@ -145,15 +148,39 @@ export default function Wordle() {
   return (
     <section style={{ maxWidth: "420px", margin: "2rem auto" }}>
       <h2>Wordle</h2>
-      <p>{message}</p>
+      {playerName ? <div role="status" style={{ marginBottom: "1rem" }}>Welcome {playerName}!</div> : null}
+      <p role="status">{message}</p>
+      <button
+        type="button"
+        onClick={() => {
+          setGrid(makeEmptyGrid());
+          setRow(0);
+          setCol(0);
+          setMessage('Enter a 5-letter guess.');
+          setGameOver(false);
+          setFeedback(makeEmptyGrid());
+        }}
+        style={{
+          marginTop: '1rem',
+          padding: '0.75rem 1rem',
+          borderRadius: '8px',
+          border: '1px solid #ccc',
+          background: '#f4f4f4',
+          cursor: 'pointer',
+        }}
+      >
+        Reset Game
+      </button>
       <div
         id="wordle-grid"
+        role="grid"
+        aria-label="Wordle grid"
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(5, 48px)",
-          gap: "8px",
-          justifyContent: "center",
-          marginTop: "1rem",
+          display: 'grid',
+          gridTemplateColumns: 'repeat(5, 48px)',
+          gap: '8px',
+          justifyContent: 'center',
+          marginTop: '1rem',
         }}
       >
         {grid.flatMap((rowLetters, rowIndex) =>
@@ -163,18 +190,20 @@ export default function Wordle() {
             return (
               <div
                 key={key}
+                role="gridcell"
+                aria-label={`Row ${rowIndex + 1} column ${colIndex + 1}${letter ? `: ${letter}` : ''}`}
                 style={{
-                  border: "2px solid #ccc",
-                  width: "48px",
-                  height: "48px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "1.25rem",
-                  fontWeight: "bold",
-                  textTransform: "uppercase",
-                  backgroundColor: color || "#fff",
-                  color: color ? "#fff" : "#000",
+                  border: '2px solid #ccc',
+                  width: '48px',
+                  height: '48px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '1.25rem',
+                  fontWeight: 'bold',
+                  textTransform: 'uppercase',
+                  backgroundColor: color || '#fff',
+                  color: color ? '#fff' : '#000',
                 }}
               >
                 {letter}
@@ -183,7 +212,7 @@ export default function Wordle() {
           })
         )}
       </div>
-      <p style={{ marginTop: "1rem", fontSize: "0.95rem" }}>
+      <p style={{ marginTop: '1rem', fontSize: '0.95rem' }}>
         Use your keyboard to type letters, press Enter to submit, and Backspace to edit.
       </p>
     </section>
