@@ -3,9 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-
   "homepage": "https://it3049c-lively-fa23.github.io/games-hub-with-navigation-NateOtten07/",
-
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -14,18 +12,15 @@
     "test": "npm run test:unit && npm run build && npm run test:e2e",
     "test:unit": "vitest --run",
     "test:e2e": "playwright test",
-
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-
   "dependencies": {
     "normalize.css": "^8.0.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^6.28.0"
   },
-
   "devDependencies": {
     "@eslint/js": "^9.36.0",
     "@playwright/test": "^1.61.1",
