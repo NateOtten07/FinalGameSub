@@ -8,7 +8,9 @@ import { appRoutes } from "./routes";
 // Apply theme on app start
 applySavedTheme();
 
-const router = createBrowserRouter(appRoutes);
+const router = createBrowserRouter(appRoutes, {
+  basename: import.meta.env.BASE_URL,
+});
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
