@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://it3049c-lively-fa23.github.io/games-hub-with-navigation-NateOtten07/",
+  "homepage": "https://nateotten07.github.io/FinalGameSub/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
