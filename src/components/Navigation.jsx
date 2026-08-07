@@ -12,16 +12,17 @@ export function Navigation() {
 
   return (
     <nav>
-      <NavLink to="/">Home</NavLink>
-      {` | `}
-      <NavLink to="/lobby">Lobby</NavLink>
-      {` | `}
-      <NavLink to="/game/rps">Rock Paper Scissors</NavLink>
-      {` | `}
-      <NavLink to="/game/tic-tac-toe">Tic-Tac-Toe</NavLink>
+      <div className="nav-links">
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/lobby">Lobby</NavLink>
+        <NavLink to="/game/rps">Rock Paper Scissors</NavLink>
+        <NavLink to="/game/tic-tac-toe">Tic-Tac-Toe</NavLink>
+        <NavLink to="/game/wordle">Wordle</NavLink>
+        <NavLink to="/game/type-test">Type Test</NavLink>
+      </div>
 
       {settings && settings.name && (
-        <div>
+        <div className="nav-user">
           <span>Hello, {settings.name}</span>
           <button onClick={handleLogout}>Logout</button>
         </div>

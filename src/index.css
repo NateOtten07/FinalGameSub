@@ -63,6 +63,7 @@ body {
 
 /* Manual dark theme override */
 .theme-dark {
+  color-scheme: dark;
   --color-text: rgba(255, 255, 255, 0.87);
   --color-text-secondary: #ccc;
   --color-background: #111;
@@ -82,12 +83,11 @@ body {
   color: var(--color-text);
 }
 
-/* Ensure dark theme applies to html, body, and #root */
-html:has(.theme-dark),
-body:has(.theme-dark),
-#root:has(.theme-dark) {
-  background-color: #111 !important;
-  color: rgba(255, 255, 255, 0.87);
+html.theme-dark,
+body.theme-dark,
+#root.theme-dark {
+  background-color: var(--color-background) !important;
+  color: var(--color-text) !important;
 }
 
 /* Base typography */

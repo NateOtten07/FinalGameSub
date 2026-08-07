@@ -48,8 +48,8 @@ main {
 
 nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
-  justify-content: center;
   align-items: center;
   margin-bottom: 1rem;
   background-color: var(--color-surface);
@@ -59,15 +59,17 @@ nav {
   border: 1px solid var(--color-border);
 }
 
-nav {
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
 }
 
-nav  a {
+nav a {
   text-decoration: none;
   color: var(--color-text);
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 4px;
   transition: background-color 0.2s;
 }
@@ -79,6 +81,16 @@ nav a:hover {
 nav a.active {
   background-color: #007bff;
   color: white;
+}
+
+.nav-user {
+  margin-left: auto;
+  display: flex;
+  gap: 1rem;
+  justify-content: end;
+  align-items: center;
+  border-left: 1px solid var(--color-border);
+  padding-left: 1rem;
 }
 
 section {

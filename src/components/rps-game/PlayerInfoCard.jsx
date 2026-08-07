@@ -1,7 +1,8 @@
 import { avatars } from "../../logic/avatars";
 
 export function PlayerInfoCard({ playerName, playerAvatar }) {
-  console.log(playerAvatar);
+  const avatar = avatars.find((a) => a.key === playerAvatar) || avatars[0];
+
   return (
     <section aria-labelledby="player-info-heading" className="card">
       <h2 id="player-info-heading">Player Info</h2>
@@ -11,7 +12,7 @@ export function PlayerInfoCard({ playerName, playerAvatar }) {
       <div className="player-avatar">
         <img
           id="current-avatar"
-          src={avatars.find((a) => a.key === playerAvatar).image}
+          src={avatar.image}
           alt="Player avatar"
         />
         <span id="player-name">{playerName}</span>
