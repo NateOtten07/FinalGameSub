@@ -7,10 +7,19 @@ export function HomePage() {
   const games = [
     { key: "rps", name: "Rock Paper Scissors", description: "A simple game of Rock Paper Scissors" },
     { key: "tic-tac-toe", name: "Tic Tac Toe", description: "A simple game of Tic Tac Toe" },
+    { key: "wordle", name: "Wordle", description: "A simple game of Wordle" },
+    { key: "type-test", name: "Type Test", description: "A typing speed test" },
   ];
 
   const filteredGames = games.filter((game) => 
     (!search || game.name.toLowerCase().includes(search))
+  );
+
+  const renderGameItem = (game) => (
+    <li key={game.key}>
+      <Link to={`/game/${game.key}`}>{game.name}</Link>
+      <p>{game.description}</p>
+    </li>
   );
 
   return (
@@ -34,12 +43,7 @@ export function HomePage() {
       />
 
       <ul style={{ textAlign: "left" }}>
-        {filteredGames.map((game) => (
-          <li key={game.key}>
-            <Link to={`/game/${game.key}`}>{game.name}</Link>
-            <p>{game.description}</p>
-          </li>
-        ))}
+        {filteredGames.map((game) => renderGameItem(game))}
       </ul>
     </section>
   );
