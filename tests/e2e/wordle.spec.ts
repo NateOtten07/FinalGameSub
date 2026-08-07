@@ -9,9 +9,9 @@ const settings = {
 
 test.describe('Wordle', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/lobby');
+    await page.goto('lobby');
     await page.evaluate((settings) => localStorage.setItem('game.settings', JSON.stringify(settings)), settings);
-    await page.goto('/game/wordle');
+    await page.goto('game/wordle');
   });
 
   test('loads initial state of the game', async ({ page }) => {

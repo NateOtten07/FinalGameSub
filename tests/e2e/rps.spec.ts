@@ -9,9 +9,9 @@ const settings = {
 
 test.describe('Rock Paper Scissors', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/lobby');
+    await page.goto('lobby');
     await page.evaluate((settings) => localStorage.setItem('game.settings', JSON.stringify(settings)), settings);
-    await page.goto('/game/rps');
+    await page.goto('game/rps');
   });
 
   test('loads initial state of the game', async ({ page }) => {
@@ -35,3 +35,4 @@ test.describe('Rock Paper Scissors', () => {
     await expect(page.getByText(/ties: 0/i)).toBeVisible();
   });
 });
+
